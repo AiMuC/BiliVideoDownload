@@ -1,5 +1,7 @@
 # BiliVideoDownload
 基于PHP的哔哩哔哩视频下载<br>
+暂不支持番剧解析/下载<br>
+需要设置您的Cookie 如未设置Cookie视频清晰度默认为360P
 
 # 部署方法
 克隆项目到本地
@@ -8,7 +10,7 @@ $type类型geturl/download<br>
 $id为视频的AV号或BV号<br>
 
 # 获取视频地址示例 推荐
-示例:http://127.0.0.1/blidownload/?type=geturl&id=BV1Qv4y1o7bT<br>
+示例:http://您的IP/blidownload/?type=geturl&id=BV1Qv4y1o7bT<br>
 
 返回结果:<br>
 {
@@ -29,5 +31,5 @@ Referer:https://www.bilibili.com/video/视频号<br>
 由于PHP存在脚本执行时间限制 默认一般为300秒 此时遇到较大的视频会出现,视频未下载完成就被中断执行的情况<br>
 此问题可以通过调整PHP脚本执行时间来解决!
 
-示例:http://127.0.0.1/blidownload/?type=download&id=BV1Bp4y1n74J<br>
+示例:http://您的IP/blidownload/?type=download&id=BV1Bp4y1n74J<br>
 返回结果:视频下载成功-----视频存放路径为 blidownload/download/BV1Bp4y1n74J.flv<br>
