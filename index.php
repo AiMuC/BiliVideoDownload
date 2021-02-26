@@ -10,8 +10,9 @@ require('system/init.php');
 
 switch ($_GET['type']) {
     case "geturl":
-        if (!empty(GetVideoSrc($_GET['id']))) {
-            ResponseData('视频地址获取成功', 'success', GetVideoSrc($_GET['id']));
+        $Url=GetVideoSrc($_GET['id']);
+        if (!empty($Url)) {
+            ResponseData('视频地址获取成功', 'success', $Url);
         } else {
             ResponseData('视频地址获取失败', 'error');
         }
