@@ -72,6 +72,12 @@ Referer:https://www.bilibili.com/video/视频号<br>
 https://api.bilibili.com/x/player/pagelist?bvid=BV号
 2.通过BV号以及Cid获取视频真实播放地址
 https://api.bilibili.com/x/player/playurl?cid=Cid&bvid=BV号&qn=80
+qn对照表:
+"超清 1080P+",112,
+"高清 1080P",80,
+"高清 720P",64,
+"清晰 480P",32,
+"流畅 360P",16,
 3.访问视频真实连接需要带上参数
 Referer:https://www.bilibili.com/video/BV号码  //必须加
 Origin:https://www.bilibili.com //非必须
