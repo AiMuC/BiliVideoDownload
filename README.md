@@ -1,18 +1,17 @@
-# BiliVideoDownload
->
+# BiliVideoDownload [点我充电](http://www.aimuc.cn/)
+> 
 基于PHP的哔哩哔哩视频下载<br>
 暂不支持番剧解析/下载<br>
 需要设置您的Cookie 如未设置Cookie视频清晰度默认为360P
 
 # 部署方法
-> text-here 
-克隆项目到本地
-进入system/config.php 设置您的Cookie
+> 
+克隆项目到本地进入system/config.php 设置您的Cookie<br>
 $type类型geturl/download<br>
 $id为视频的AV号或BV号<br>
 
 # 1.获取视频地址示例 推荐
-> text-here 
+>  
 示例:http://您的IP/blidownload/?type=geturl&id=BV1Qv4y1o7bT<br>
 
 返回结果:<br>
@@ -80,4 +79,5 @@ Referer:https://www.bilibili.com/video/BV号码  //必须加<br>
 Origin:https://www.bilibili.com //非必须<br>
 ```
 
-# 仅供学习交流，严禁用于商业用途! 点个Star吧,秋梨膏！~~
+# 仅供学习交流，严禁用于商业用途! 点个Star吧,秋梨膏！
+
