@@ -33,3 +33,18 @@ Referer:https://www.bilibili.com/video/视频号<br>
 
 示例:http://您的IP/blidownload/?type=download&id=BV1Bp4y1n74J<br>
 返回结果:视频下载成功-----视频存放路径为 blidownload/download/BV1Bp4y1n74J.flv<br>
+
+
+# 折腾笔记
+
+用到的B站接口如下<br>
+
+1.转换bv或av号获取视频Cid<br>
+https://api.bilibili.com/x/player/pagelist?bvid=BV号<br>
+2.通过BV号以及Cid获取视频真实播放地址<br>
+https://api.bilibili.com/x/player/playurl?cid=Cid&bvid=BV号&qn=80<br>
+3.访问视频真实连接需要带上参数<br>
+Referer:https://www.bilibili.com/video/BV号码  //必须加<br>
+Origin:https://www.bilibili.com //非必须<br>
+
+# 仅供学习交流，严禁用于商业用途! 看到的小伙伴帮忙点个star吧~~~
