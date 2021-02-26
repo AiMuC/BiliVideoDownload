@@ -30,12 +30,12 @@ $id为视频的AV号或BV号<br>
 ** 以下upos-sz-mirrorcoso1.bilivideo.com需和返回结果中的域名相同<br> **
 
 ```javascript
-		location /download
-		{
-			proxy_pass https://upos-sz-mirrorcoso1.bilivideo.com/;
-			proxy_set_header Host upos-sz-mirrorcoso1.bilivideo.com;
-			proxy_set_header Referer "https://www.bilibili.com/video/";
-		}
+location /download
+{
+	proxy_pass https://upos-sz-mirrorcoso1.bilivideo.com/;
+	proxy_set_header Host upos-sz-mirrorcoso1.bilivideo.com;
+	proxy_set_header Referer "https://www.bilibili.com/video/";
+}
 ```
 
 
@@ -46,15 +46,13 @@ $id为视频的AV号或BV号<br>
 
 ```
 
-
-
 # 方法2
 > 
 由于B站显示视频地址无法直接打开 需要设置浏览器请求头<br>
 Referer:https://www.bilibili.com/video/视频号<br>
 此处我使用的是浏览器插件ModHeader<br>
-
 ![text-here](https://s3.ax1x.com/2021/02/26/yz0DJg.png)
+设置完成后直接打开视频地址即可下载<br>
 
 # 2.PHP视频下载示例 //不推荐
 > 
@@ -70,13 +68,13 @@ Referer:https://www.bilibili.com/video/视频号<br>
 使用到的B站接口如下<br>
 
 ```javascript
-1.转换bv或av号获取视频Cid<br>
-https://api.bilibili.com/x/player/pagelist?bvid=BV号<br>
-2.通过BV号以及Cid获取视频真实播放地址<br>
-https://api.bilibili.com/x/player/playurl?cid=Cid&bvid=BV号&qn=80<br>
-3.访问视频真实连接需要带上参数<br>
-Referer:https://www.bilibili.com/video/BV号码  //必须加<br>
-Origin:https://www.bilibili.com //非必须<br>
+1.转换bv或av号获取视频Cid
+https://api.bilibili.com/x/player/pagelist?bvid=BV号
+2.通过BV号以及Cid获取视频真实播放地址
+https://api.bilibili.com/x/player/playurl?cid=Cid&bvid=BV号&qn=80
+3.访问视频真实连接需要带上参数
+Referer:https://www.bilibili.com/video/BV号码  //必须加
+Origin:https://www.bilibili.com //非必须
 ```
 
 # 仅供学习交流，严禁用于商业用途! 点个Star吧,秋梨膏！
