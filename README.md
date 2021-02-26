@@ -1,6 +1,9 @@
 # BiliVideoDownload
 基于PHP的哔哩哔哩视频下载<br>
 
+# 部署方法
+克隆项目到本地
+进入system/config.php 设置您的Cookie
 $type类型geturl/download<br>
 $id为视频的AV号或BV号<br>
 
