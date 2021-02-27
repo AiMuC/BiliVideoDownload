@@ -4,6 +4,15 @@
 暂不支持番剧解析/下载<br>
 需要设置您的Cookie 如未设置Cookie视频清晰度默认为360P
 
+
+```javascript
+   演示DEMO 此接口使用腾讯云函数搭建
+   https://service-h98sd4g0-1251752515.gz.apigw.tencentcs.com/release/BiliDownload/?id=BV1J5411K77b
+   仅需更改尾部id=bv号即可返回视频真实地址
+   > 示例项目中的cookie可能会过期建议自行搭建使用!
+```
+
+
 # 部署方法
 > 
 克隆项目到本地进入system/config.php 设置您的Cookie<br>
