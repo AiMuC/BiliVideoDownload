@@ -14,7 +14,7 @@
 */
 function DownloadVideo($videoid)
 {
-    include(DIR.'/system/config.php');
+    include(DIR . '/system/config.php');
     $VideoUrl = GetVideoSrc($videoid);
     $Referer = "https://www.bilibili.com/video/$videoid";
     $useragent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36 Edg/88.0.705.63";
@@ -33,7 +33,7 @@ function DownloadVideo($videoid)
 */
 function GetVideoSrc($videoid)
 {
-    include(DIR.'/system/config.php');
+    include(DIR . '/system/config.php');
     $cid = GetCid($videoid);
     $header = "cookie:" . $data['cookie'] . "\r\n";
     $Response = MyRequest("https://api.bilibili.com/x/player/playurl?cid=$cid&bvid=$videoid&qn=80", $header, "", "", "");
