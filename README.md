@@ -1,10 +1,11 @@
 # BiliVideoDownload [点我充电](http://www.aimuc.cn/)
 > 
 基于PHP的哔哩哔哩视频下载<br>
-** $type类型geturl/getfjurl/download<br> **
+$type类型geturl/getfjurl/download<br>
 $id为视频的AV号/BV号/番剧EP号<br>
 ~~暂不支持番剧解析/下载<br>~~
-**  2021/2/27 更新后支持番剧解析非大大会员账号不支持解析需要大会员观看的番剧 **
+
+** 2021/2/27 更新后支持番剧解析非大大会员账号不支持解析需要大会员观看的番剧 **
 
 
 
@@ -21,6 +22,8 @@ $id为视频的AV号/BV号/番剧EP号<br>
 > 
 克隆项目到本地进入system/config.php 设置您的Cookie<br>
 需要设置您的Cookie 如未设置Cookie视频清晰度默认为360P<br>
+如使用腾讯云函数部署该项目请将以上 index.php内的switch case内容注释
+腾讯云函数内需定义入口函数为 index.main_handler
 
 
 # 1.获取视频地址示例 推荐
@@ -45,8 +48,16 @@ $id为视频的AV号/BV号/番剧EP号<br>
 回车即可开始下载视频！
 ```
 
-
 # 方法1 推荐
+> 
+由于B站显示视频地址无法直接打开 需要设置浏览器请求头<br>
+Referer:https://www.bilibili.com/video/视频号<br>
+此处我使用的是浏览器插件ModHeader<br>
+![text-here](https://s3.ax1x.com/2021/02/26/yz0DJg.png)
+设置完成后直接打开视频地址即可下载<br>
+
+
+# 方法2 推荐-但视频域名更变后需再次手动更改代理
 > 
 添加Nginx反向代理在nginx配置文件中添加以下内容<br>
 ** 以下upos-sz-mirrorcoso1.bilivideo.com需和返回结果中的域名相同<br> **
@@ -67,15 +78,6 @@ location /download
 示例:http://127.0.0.1/download/upgcxcode/65/67/302726765/302726765_nb2-1-32.flv?e=ig8euxZM2rNcNbNVhwdVhoMghwdVhwdEto8g5X10ugNcXBlqNxHxNEVE5XREto8KqJZHUa6m5J0SqE85tZvEuENvNo8g2ENvNo8i8o859r1qXg8xNEVE5XREto8GuFGv2U7SuxI72X6fTr859r1qXg8gNEVE5XREto8z5JZC2X2gkX5L5F1eTX1jkXlsTXHeux_f2o859IB_&uipk=5&nbs=1&deadline=1614356610&gen=playurlv2&os=coso1bv&oi=3729533076&trid=7e6e8c9ebf5e4289b7924b73e31ab62eu&platform=pc&upsig=e2f41b99e87deba55b261a85d9f904ac&uparams=e,uipk,nbs,deadline,gen,os,oi,trid,platform&mid=0&orderid=0,3&agrr=1&logo=80000000
 
 ```
-
-# 方法2
-> 
-由于B站显示视频地址无法直接打开 需要设置浏览器请求头<br>
-Referer:https://www.bilibili.com/video/视频号<br>
-此处我使用的是浏览器插件ModHeader<br>
-![text-here](https://s3.ax1x.com/2021/02/26/yz0DJg.png)
-设置完成后直接打开视频地址即可下载<br>
-
 # 2.PHP视频下载示例 //不推荐
 > 
 不推荐使用此方法下载视频!<br>
