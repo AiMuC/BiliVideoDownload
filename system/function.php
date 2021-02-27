@@ -8,25 +8,6 @@
 */
 
 /* 
- * @Description: 下载视频到本地
- * @param: $videoid
- * @return: 
-*/
-function DownloadVideo($videoid)
-{
-    include(DIR . '/system/config.php');
-    $VideoUrl = GetVideoSrc($videoid);
-    $Referer = "https://www.bilibili.com/video/$videoid";
-    $useragent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36 Edg/88.0.705.63";
-    $header = "user-agent:" . $useragent . "\r\n" . "referer:" . $Referer . "\r\n" . "cookie:" . $data['cookie'] . "\r\n" . "Origin:https://www.bilibili.com\r\n";
-    $Response = MyRequest($VideoUrl, $header, "", "", "");
-    $path = DIR . "/download/{$videoid}.flv";
-    if (file_exists($path)) exit("此视频本地已存在无需再次下载!-----视频存放路径为{$path}");
-    file_put_contents($path, $Response['body']);
-    if (file_exists($path)) echo "视频下载成功-----视频存放路径为{$path}";
-}
-
-/* 
  * @Description: 获取番剧真实地址
  * @param: 番剧EP
  * @return: url/video
@@ -66,6 +47,25 @@ function GetCid($videoid)
     $Response = MyRequest("https://api.bilibili.com/x/player/pagelist?bvid=$videoid", "", "", "", "");
     $Response = json_decode($Response['body'], true);
     return $Response['data'][0]['cid'];
+}
+
+/* 
+ * @Description: 下载视频到本地
+ * @param: $videoid
+ * @return: 
+*/
+function DownloadVideo($videoid)
+{
+    include(DIR . '/system/config.php');
+    $VideoUrl = GetVideoSrc($videoid);
+    $Referer = "https://www.bilibili.com/video/$videoid";
+    $useragent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36 Edg/88.0.705.63";
+    $header = "user-agent:" . $useragent . "\r\n" . "referer:" . $Referer . "\r\n" . "cookie:" . $data['cookie'] . "\r\n" . "Origin:https://www.bilibili.com\r\n";
+    $Response = MyRequest($VideoUrl, $header, "", "", "");
+    $path = DIR . "/download/{$videoid}.flv";
+    if (file_exists($path)) exit("此视频本地已存在无需再次下载!-----视频存放路径为{$path}");
+    file_put_contents($path, $Response['body']);
+    if (file_exists($path)) echo "视频下载成功-----视频存放路径为{$path}";
 }
 
 /* 
@@ -146,5 +146,5 @@ function ResponseData($msg, $type = 'success', $data = null)
         'msg' => $msg,
         'data' => $data
     );
-    echo json_encode($Response, JSON_UNESCAPED_UNICODE);
+    return json_encode($Response, JSON_UNESCAPED_UNICODE);
 }
