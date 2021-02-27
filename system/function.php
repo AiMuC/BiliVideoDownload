@@ -27,16 +27,31 @@ function DownloadVideo($videoid)
 }
 
 /* 
+ * @Description: 获取番剧真实地址
+ * @param: 番剧EP
+ * @return: url/video
+*/
+function GetFjUrl($videoid)
+{
+    include(DIR . '/system/config.php');
+    $Referer = "https://www.bilibili.com/";
+    $header = "cookie:" . $data['cookie'] . "\r\n" . "referer:" . $Referer . "\r\n";
+    $Response = MyRequest("https://api.bilibili.com/pgc/player/web/playurl?ep_id={$videoid}&qn=112", $header, "", "", "");
+    $Response = json_decode($Response['body'], true);
+    return $Response['result']['durl'][0]['url'];
+}
+
+/* 
  * @Description: 获取视频真实地址
  * @param: 视频AV号或BV号
- * @return: url/video
+ * @return: url
 */
 function GetVideoSrc($videoid)
 {
     include(DIR . '/system/config.php');
     $cid = GetCid($videoid);
     $header = "cookie:" . $data['cookie'] . "\r\n";
-    $Response = MyRequest("https://api.bilibili.com/x/player/playurl?cid=$cid&bvid=$videoid&qn=80", $header, "", "", "");
+    $Response = MyRequest("https://api.bilibili.com/x/player/playurl?cid=$cid&bvid=$videoid&qn=112", $header, "", "", "");
     $Response = json_decode($Response['body'], true);
     return $Response['data']['durl'][0]['url'];
 }

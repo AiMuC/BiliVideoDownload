@@ -1,5 +1,5 @@
 <?php
 $data=array(
-    'cookie'=>"你的Cookie"
+    'cookie'=>"您的Cookie"
 );
 ?>

@@ -33,16 +33,6 @@ $id为视频的AV号或BV号<br>
 }
 ```
 
-# 最简易的下载方法
-
-```javascript
-随便打开一个B站视频 如:https://www.bilibili.com/video/1
-在B站视频页面点击F12打开开发者工具在 "控制台/console" 内输入
-window.location.href="视频下载链接"
-输入完成后回车执行即可下载~
-```
-
-
 # 方法1 推荐
 > 
 添加Nginx反向代理在nginx配置文件中添加以下内容<br>
@@ -65,7 +55,7 @@ location /download
 
 ```
 
-# 方法2 一劳永逸但需安装浏览器插件
+# 方法2
 > 
 由于B站显示视频地址无法直接打开 需要设置浏览器请求头<br>
 Referer:https://www.bilibili.com/video/视频号<br>
@@ -98,7 +88,7 @@ qn对照表:
 "清晰 480P",32,
 "流畅 360P",16,
 3.访问视频真实连接需要带上参数
-Referer:https://www.bilibili.com/video/BV号码  //必须加 ---经过测试BV号无验证随意填入即可
+Referer:https://www.bilibili.com/video/BV号码  //必须加
 Origin:https://www.bilibili.com //非必须
 ```
 

@@ -9,6 +9,14 @@
 require('system/init.php');
 
 switch ($_GET['type']) {
+    case "getfjurl":
+        $Url = GetFjUrl($_GET['id']);
+        if (!empty($Url)) {
+            ResponseData('番剧播放地址获取成功', 'success', $Url);
+        } else {
+            ResponseData('番剧播放地址获取失败-可能的原因为账号非大会员或cookie设置错误', 'error');
+        }
+        break;
     case "geturl":
         $Url = GetVideoSrc($_GET['id']);
         if (!empty($Url)) {
