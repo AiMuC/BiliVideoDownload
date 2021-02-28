@@ -19,7 +19,7 @@ function GetFjUrl($videoid)
     $header = "cookie:" . $data['cookie'] . "\r\n" . "referer:" . $Referer . "\r\n";
     $Response = MyRequest("https://api.bilibili.com/pgc/player/web/playurl?ep_id={$videoid}&qn=112", $header, "", "", "");
     $Response = json_decode($Response['body'], true);
-    return $Response['result']['durl'][0]['url'];
+    return stripslashes($Response['result']['durl'][0]['url']);
 }
 
 /* 
@@ -34,7 +34,7 @@ function GetVideoSrc($videoid)
     $header = "cookie:" . $data['cookie'] . "\r\n";
     $Response = MyRequest("https://api.bilibili.com/x/player/playurl?cid=$cid&bvid=$videoid&qn=112", $header, "", "", "");
     $Response = json_decode($Response['body'], true);
-    return $Response['data']['durl'][0]['url'];
+    return stripslashes($Response['data']['durl'][0]['url']);
 }
 
 /* 
