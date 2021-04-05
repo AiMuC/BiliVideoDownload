@@ -8,6 +8,11 @@ $id为视频的AV号/BV号/番剧EP号<br>
 ** 2021/2/27 更新后支持番剧解析非大大会员账号不支持解析需要大会员观看的番剧 **
 
 
+```javascript
+经测试部分大会员账户无法使用！
+
+```
+
 
 ```javascript
    演示DEMO 此接口使用腾讯云函数搭建 
@@ -61,12 +66,6 @@ Referer:https://www.bilibili.com/video/视频号<br>
 > 
 添加Nginx反向代理在nginx配置文件中添加以下内容<br>
 ** 以下upos-sz-mirrorcoso1.bilivideo.com需和返回结果中的域名相同<br> **
-
-
-```javascript
-经测试部分大会员账户无法使用！
-
-```
 
 
 ```javascript
