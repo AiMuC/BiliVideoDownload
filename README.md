@@ -62,6 +62,13 @@ Referer:https://www.bilibili.com/video/视频号<br>
 添加Nginx反向代理在nginx配置文件中添加以下内容<br>
 ** 以下upos-sz-mirrorcoso1.bilivideo.com需和返回结果中的域名相同<br> **
 
+
+```javascript
+经测试部分大会员账户无法使用！
+
+```
+
+
 ```javascript
 location /download
 {
