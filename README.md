@@ -110,7 +110,7 @@ qn对照表:
 "高清 720P",64,
 "清晰 480P",32,
 "流畅 360P",16,
-3.访问视频真实连接需要带上参数
+4.访问视频真实连接需要带上参数
 Referer:https://www.bilibili.com/video/BV号码 //必须加 --经过测试bv号非必须
 Origin:https://www.bilibili.com //非必须
 ```
